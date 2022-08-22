@@ -1,5 +1,4 @@
-package com.company;
+package ArraysQues;
 
 public class MaxAndMin {
-
 }
