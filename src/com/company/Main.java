@@ -1,17 +1,32 @@
 package com.company;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+
+    public static List<Person> personList = new ArrayList<>();
+    public static int firstNameMaxLength = 0;
+    public static int secondNameMaxLength = 0;
+    public static int DOBMaxLength = 0;
+    public static int birthPlaceMaxLength = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader data = null;
         try {
             data = new BufferedReader(new FileReader("C:\\Users\\rupam\\Desktop\\ioInJava\\data.txt"));
             String l;
+            String[] line;
             while ((l=data.readLine())!=null){
-                print(l);
+                line = l.split(",");
+                firstNameMaxLength = Math.max(firstNameMaxLength,line[0].length());
+                secondNameMaxLength = Math.max(secondNameMaxLength,line[1].length());
+                DOBMaxLength = Math.max(DOBMaxLength,line[2].length());
+                birthPlaceMaxLength = Math.max(birthPlaceMaxLength,line[3].length());
+                personList.add(new Person(line[0],line[1],rot5(line[2]),rot13(line[3])));
             }
+            print();
         }
         finally {
             if(data!=null)
@@ -19,39 +34,61 @@ public class Main {
         }
     }
 
-    public static void print(String str){
-        String[] s = str.split(",");
-        System.out.println(s[0]+" "+s[1]+ " "+rot5(s[2])+" "+rot13(s[3]));
+    public static void print(){
+        //headers
+        System.out.print("Name");
+        for(int i=0; i<firstNameMaxLength+secondNameMaxLength-1;i++){
+            System.out.print(" ");
+        }
+        System.out.print("Birth Date");
+        for(int i=0; i<DOBMaxLength-8;i++){
+            System.out.print(" ");
+        }
+        System.out.println("Birth Place");
+        //dot view
+        for(int i=0; i<firstNameMaxLength+secondNameMaxLength+1;i++){
+            System.out.print("-");
+        }
+        System.out.print("  ");
+        for(int i=0; i<DOBMaxLength;i++){
+            System.out.print("-");
+        }
+        System.out.print("  ");
+        for(int i=0; i<birthPlaceMaxLength+1;i++){
+            System.out.print("-");
+        }
+        System.out.println();
+        for(Person p:personList){
+            System.out.print(p.getFirstName()+" "+p.getSecondName());
+
+        }
     }
 
     public static String rot5(String str) {
         String[] s = str.split("-");
-        String originalDOB = "";
+        StringBuilder originalDOB = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             String temp = s[i];
             for (int j = 0; j < temp.length(); j++) {
                 if (temp.charAt(j) < '5') {
-                    originalDOB += (temp.charAt(j) + 5) - '0';
-                } else originalDOB += (temp.charAt(j) - 5) - '0';
+                    originalDOB.append((temp.charAt(j) + 5) - '0');
+                } else originalDOB.append((temp.charAt(j) - 5) - '0');
             }
-            if (i != 2) originalDOB += '-';
+            if (i != 2) originalDOB.append('-');
         }
-        return originalDOB;
+        return originalDOB.toString();
     }
 
     public static String rot13(String s) {
-        String originalDOB = "";
-
+        StringBuilder placeOfBirth = new StringBuilder();
         for (int j = 0; j < s.length(); j++) {
             if(s.charAt(j)!=' '){
                 if (s.charAt(j) < 'N') {
-                    originalDOB += (char) (s.charAt(j) + 13) ;
-                } else originalDOB += (char) (s.charAt(j) - 13) ;
+                    placeOfBirth.append((char) (s.charAt(j) + 13));
+                } else placeOfBirth.append((char) (s.charAt(j) - 13));
             }
-            else originalDOB+=' ';
+            else placeOfBirth.append(' ');
         }
-
-
-        return originalDOB;
+        return placeOfBirth.toString();
     }
 }
