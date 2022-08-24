@@ -60,8 +60,8 @@ public class Main {
         System.out.println();
         for(Person p:personList){
             System.out.print(p.getFirstName()+" "+p.getSecondName());
-            int l = p.getFirstName().length()+p.getSecondName().length()+1;
-            for(int i=0; i<firstNameMaxLength+secondNameMaxLength-l+3;i++){
+            int l = p.getFirstName().length()+p.getSecondName().length();
+            for(int i=0; i<firstNameMaxLength+secondNameMaxLength-l+2;i++){
                 System.out.print(" ");
             }
             System.out.print(p.getDOB());
