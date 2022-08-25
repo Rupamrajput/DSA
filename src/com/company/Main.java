@@ -58,6 +58,7 @@ public class Main {
             System.out.print("-");
         }
         System.out.println();
+        //Person list print
         for(Person p:personList){
             System.out.print(p.getFirstName()+" "+p.getSecondName());
             int l = p.getFirstName().length()+p.getSecondName().length();
