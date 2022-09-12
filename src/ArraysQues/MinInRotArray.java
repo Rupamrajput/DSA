@@ -2,12 +2,14 @@ package ArraysQues;
 
 public class MinInRotArray {
     public static int findMin(int[] nums) {
-        int min = nums[0];
-        for(int i=1; i< nums.length;i++){
-            if(nums[i]<nums[i-1]){
-                return nums[i];
+        int low = 0; int high = nums.length-1;
+        while (low<high){
+            int mid = low+ (high-low)/2;
+            if(nums[mid]<nums[high]){
+                high = mid;
             }
+            else low = mid+1;
         }
-        return min;
+        return nums[low];
     }
 }
