@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class MaxSubArraySum {
     public int maxSubArray(int[] nums) {

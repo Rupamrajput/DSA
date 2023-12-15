@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class ProductOfArrayExceptSelf {
     public static int[] productOfArray(int[] arr){

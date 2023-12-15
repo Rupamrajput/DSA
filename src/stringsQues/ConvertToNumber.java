@@ -1,4 +1,4 @@
-package StringsQues;
+package stringsQues;
 
 public class ConvertToNumber {
 

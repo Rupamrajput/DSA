@@ -1,6 +1,4 @@
-package StringsQues;
-
-import java.util.HashMap;
+package stringsQues;
 
 public class MinimumWindow {
     public static void main(String[] args) {

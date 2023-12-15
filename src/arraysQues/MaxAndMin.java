@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class MaxAndMin {
     public static void main(String[] args) {

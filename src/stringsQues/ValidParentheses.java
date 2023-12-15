@@ -1,4 +1,4 @@
-package StringsQues;
+package stringsQues;
 
 import java.util.Stack;
 

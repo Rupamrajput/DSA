@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 import java.util.HashMap;
 

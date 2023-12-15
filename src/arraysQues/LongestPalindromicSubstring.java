@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class LongestPalindromicSubstring {
     public static String longestPalindrome(String input) {

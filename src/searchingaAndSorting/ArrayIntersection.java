@@ -1,4 +1,4 @@
-package SearchingaAndSorting;
+package searchingaAndSorting;
 
 import java.util.ArrayList;
 

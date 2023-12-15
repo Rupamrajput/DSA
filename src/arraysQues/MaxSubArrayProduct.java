@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class MaxSubArrayProduct {
     public static int maxProduct(int[] nums) {

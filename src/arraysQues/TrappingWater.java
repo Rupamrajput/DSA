@@ -1,4 +1,4 @@
-package ArraysQues;
+package arraysQues;
 
 public class TrappingWater {
     public int trap(int[] height) {
